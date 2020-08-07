@@ -10,7 +10,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val ctx = JSContext()
-        val jsvalue = ctx.evaluate("['This value comes','from JavaScript!'].join(' ');")
+        val jsvalue = ctx.evaluate("""
+            [
+                'This value comes',
+                'from JavaScript!'
+            ].join(' ');
+        """)
         this.textView.text = jsvalue.asString()
     }
 }
